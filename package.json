@@ -1,0 +1,35 @@
+{
+  "name": "MVP-Budget-APP",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Joed11/MVP-Budget-APP.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Joed11/MVP-Budget-APP/issues"
+  },
+  "homepage": "https://github.com/Joed11/MVP-Budget-APP#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "chart.js": "^2.9.4",
+    "express": "^4.17.1",
+    "helmet": "^4.1.1",
+    "mongoose": "^5.10.11",
+    "morgan": "^1.10.0",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.6"
+  }
+}
