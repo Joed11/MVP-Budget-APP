@@ -7,26 +7,39 @@ class BudgetChart extends React.Component {
     super(props);
 
     this.state = {
-      charHeight: '100%',
       charData:{
           labels: ['Jan','Feb', 'March', 'April', 'May', 'June', 'July', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'],
-        datasets: [{
-              label: 'Budget',
-              data: [1000, 1200, 800, 1300, 950, 900, 1000, 600, 1200, 500, 450, 1250],
-          }]
+        datasets:[
+            {
+              label: ['Income'],
+              data: [1000,800,1000,800,1000,1000,1000,1000,1000,1000,1000,1000],
+              backgroundColor: 'rgba(255, 99, 132, 0.2)',
+              borderColor: 'rgb(0, 0, 0)'
+            },
+            {
+              label: ['Expense'],
+              data: [500,1200,500,500,500,500,600,500,500,500,500,500],
+              backgroundColor: 'rgba(100, 50, 70, 0.2)',
+              borderColor: 'rgb(0, 0, 0)'
+            }
+          ]
         },
         charOptions: {
           maintainAspectRatio: true,
           scales: {
-              yAxes: [{
-                  ticks: {
-                      beginAtZero: true
-                  }
-              }]
+            xAxes: [{
+              stacked: true
+            }],
+            yAxes: [{
+               stacked: true,
+               ticks: {
+                beginAtZero: true
+                }
+            }]
           }
         }
-    };
-}
+    }
+  }
 
 
   render() {
@@ -35,8 +48,7 @@ class BudgetChart extends React.Component {
       <div className="chart">
         <Bar
           data={this.state.charData}
-          options={this.state.charOptions}
-          height={this.state.charHeight}/>
+          options={this.state.charOptions}/>
       </div>
       <Inputs/>
     </div>
