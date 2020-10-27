@@ -1,14 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Navigation from './components/Navigation.jsx';
-import BudgetChart from './components/BudgetChart.jsx';
+import BudgetWidget from './components/BudgetWidget.jsx';
 
 
 var App = (props) => {
   return (
     <div>
       <Navigation/>
-      <BudgetChart/>
+      <BudgetWidget/>
     </div>
   )
 }
