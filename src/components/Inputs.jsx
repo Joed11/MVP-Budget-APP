@@ -15,7 +15,7 @@ var Inputs = (props) => {
   const [entries, setEntries] = useState(props.categories);
 
   return (
-    <div>
+    <div className="input-section">
       <div className="input-header-container">
         <h4 className="input-header">ITEM</h4>
         <h4 className="input-header">AMOUNT</h4>
