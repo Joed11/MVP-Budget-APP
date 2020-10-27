@@ -1,17 +1,15 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import Navigation from './components/Navigation.jsx';
-import BudgetWidget from './components/BudgetWidget.jsx';
+import BudgetWidgetContainer from './redux/containers/BudgetWidgetContainer.js';
 
 
 var App = (props) => {
   return (
     <div>
       <Navigation/>
-      <BudgetWidget/>
+      <BudgetWidgetContainer/>
     </div>
   )
 }
 
-var root  = document.getElementById('app');
-ReactDOM.render(<App/>, root);
+export default App;
