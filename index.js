@@ -7,7 +7,7 @@ const PORT = process.env.PORT || 3005;
 
 const APP = EXPRESS();
 
-APP.use(EXPRESS.static(PATH.join(__dirname, './public')));
+APP.use(EXPRESS.static(PATH.join(__dirname, './dist')));
 
 APP.use(MORGAN('common'));
 APP.use(HELMET());
