@@ -5,9 +5,9 @@ import BudgetChart from './BudgetChart.jsx';
 
 var defaultDates = ['Jan', 'Feb', 'March', 'April', 'May', 'June', 'July', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec']
 
-var incomeColors = ['rgba(51,204,255,0.7)', 'rgba(255,0,0,0.7)', 'rgba(51,204,51,0.7)', 'rgba(51,51,255,0.7)', 'rgba(255,0,255,0.7)']
+var incomeColors = ['rgba(51,204,255,0.7)', 'rgba(51,204,51,0.7)', 'rgba(51,204,204,0.7)', 'rgba(153,153,255,0.7)', 'rgba(0,102,153,0.7)']
 
-var expenseColors = ['rgba(51,204,255,0.7)', 'rgba(255,0,0,0.7)', 'rgba(51,204,51,0.7)', 'rgba(51,51,255,0.7)', 'rgba(255,0,255,0.7)']
+var expenseColors = ['rgba(255,0,0,0.7)', 'rgba(204,102,0,0.7)', 'rgba(153,0,153,0.7)', 'rgba(255,102,0,0.7)', 'rgba(255,204,0,0.7)']
 
 var defaultAssets = 50000;
 
@@ -76,7 +76,7 @@ var BudgetWidget = function(props) {
   return (
     <div>
       <BudgetChart labels={labels} data={data} assets={assets}/>
-      <Inputs/>
+      <Inputs categories={categories} setCategories={setCategories}/>
     </div>
   )
 }
