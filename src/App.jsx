@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Navigation from './components/Navigation.jsx';
 import Chart from './components/Chart.jsx';
-import Inputs from './components/Inputs.jsx';
 
 
 var App = (props) => {
@@ -10,7 +9,6 @@ var App = (props) => {
     <div>
       <Navigation/>
       <Chart/>
-      <Inputs/>
     </div>
   )
 }

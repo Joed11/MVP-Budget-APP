@@ -1,11 +1,19 @@
 import React from 'react';
+import Inputs from './Inputs.jsx';
 
-var Chart = (props) => {
-  return (
+class Chart extends React.Component {
+  constructor(props) {
+    super(props);
+
+  }
+
+  render() {
+    return (
     <div>
-      Im a chart component
+      <p>Im a chart component</p>
+      <Inputs/>
     </div>
-  )
+  )}
 }
 
 export default Chart;
