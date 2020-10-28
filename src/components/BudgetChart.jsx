@@ -1,41 +1,38 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {Bar} from 'react-chartjs-2';
 
-class BudgetChart extends React.Component {
-  constructor(props) {
-    super(props);
+var BudgetChart = (props) => {
 
-    this.state = {
-      charData:{
-          labels: this.props.labels,
-        datasets: this.props.data
-        },
-        charOptions: {
-          maintainAspectRatio: true,
-          scales: {
-            xAxes: [{
-              stacked: true
-            }],
-            yAxes: [{
-               stacked: true,
-               ticks: {
-                beginAtZero: true
-                }
-            }]
+  var chartData = {
+    labels: props.labels
+  }
+
+  chartData.datasets = props.dataPoints.map((point) => {
+    return point.chartData
+  })
+
+  var chartOptions = {
+    maintainAspectRatio: true,
+    scales: {
+      xAxes: [{
+        stacked: true
+      }],
+      yAxes: [{
+         stacked: true,
+         ticks: {
+          beginAtZero: true
           }
-        }
+      }]
     }
   }
 
-
-  render() {
-    return (
+  return (
       <div className="chart">
         <Bar
-          data={this.state.charData}
-          options={this.state.charOptions}/>
+          data={chartData}
+          options={chartOptions}/>
       </div>
-  )}
+  )
 }
 
 export default BudgetChart;
