@@ -122,9 +122,17 @@ var buildDataArray = (months, amount, type) => {
   if (type.value === 'Expense') {
     value = amount * -1;
   }
-  months.forEach((month) => {
-    if (month.value !== null)
-    data[month.value] = value;
-  })
+  console.log('months',months);
+  if (months !== null && months.length) {
+    months.forEach((month) => {
+      if (month.value !== null) {
+        data[month.value] = parseInt(value);
+      }
+    })
+  } else {
+    for (let i = 0; i < data.length; i += 1) {
+      data[i] = value;
+    }
+  }
   return data;
 }
