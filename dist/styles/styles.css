@@ -87,3 +87,64 @@ body {
   margin-right: auto;
   width: 70vw;
 }
+
+.nav-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  margin-top: 1vw;
+  margin-bottom: 1vw;
+}
+
+
+.navigation-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-content: center;
+  height: 2vw;
+  margin-top: 1vw;
+  margin-bottom: 2vw;
+}
+
+.input-nav-label {
+  font-size: 1vw;
+  margin-right: .5vw;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.input-nav-input {
+  margin-right: 2.5vw;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.input-nav-button {
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-right: 3vw;
+}
+
+.input-nav-save-button {
+  margin: auto;
+  width: 14vw;
+  font-size: 1vw;
+}
+
+.nav-charts {
+  width: 12vw;
+}
+
+.input-nav-chartName {
+  margin: auto;
+  width: 12vw;
+  margin-bottom: .5vw;
+}
+
+.input-nav-chartName-label {
+  margin: auto;
+  margin-bottom: .5vw;
+  font-size: 1vw;
+}
