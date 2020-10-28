@@ -84,12 +84,14 @@ var InputField = (props) => {
       <Select
         className="input-field input-type"
         closeMenuOnSelect={true}
+        defaultValue={props.transactionType}
         onChange={(val) => setType(val)}
         options={typeOptions}
       />
       <Select
         className="input-field input-category"
         closeMenuOnSelect={true}
+        defaultValue={props.category}
         onChange={(val) => setCategory(val)}
         options={props.categories}
       />
@@ -100,6 +102,13 @@ var InputField = (props) => {
         isMulti
         options={monthOptions}
       />
+      <button
+      className="input-field input-remove"
+      onClick={() => {
+        var newChart = props.currentData.slice(0);
+        newChart.splice(props.id,1);
+        props.updateData(newChart);
+      }}>Remove</button>
     </div>
   )
 }

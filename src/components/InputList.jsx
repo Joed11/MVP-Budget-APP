@@ -3,18 +3,17 @@ import InputField from './InputField.jsx';
 
 var InputList = (props) => {
 
-  const [chartData, setChartData] = useState(props.dataPoints);
   const [newChartData, setNewChartData] = useState(props.dataPoints);
 
   useEffect(() => {
-    console.log('newChartdatachanged', newChartData)
+    props.updateDataPoints(newChartData);
   }, [newChartData])
 
   return (
   <div className="data">
-    {props.dataPoints.map((entry) => {
+    {props.dataPoints.map((entry,idx) => {
       return <InputField
-        id={entry.id}
+        id={idx}
         amount={entry.amount}
         transactionType={entry.transactionType}
         category={entry.category}
@@ -50,7 +49,6 @@ var makeNewEntry = function (newChartData) {
     backgroundColor: incomeColors[randomIdx],
     borderColor: 'rgb(255, 255, 255)'
   },
-  id: newChartData.length,
   amount: 0,
   transactionType: { value: 'Income', label: 'Income' },
   category: { value: 'Misc.', label: 'Misc.' }

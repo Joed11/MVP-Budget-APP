@@ -17,7 +17,6 @@ var defaultChart = {
         backgroundColor: incomeColors[0],
         borderColor: 'rgb(0, 0, 0)'
       },
-      id: 0,
       amount: 1000,
       transactionType: { value: 'Income', label: 'Income' },
       category: { value: 'Salary', label: 'Salary' }
@@ -29,7 +28,6 @@ var defaultChart = {
         backgroundColor: expenseColors[1],
         borderColor: 'rgb(255, 255, 255)'
       },
-      id: 1,
       amount: 500,
       transactionType: { value: 'Expense', label: 'Expense' },
       category: { value: 'Rent', label: 'Rent' },
@@ -41,7 +39,6 @@ var defaultChart = {
         backgroundColor: expenseColors[2],
         borderColor: 'rgb(255, 255, 255)'
       },
-      id: 2,
       amount: 200,
       transactionType: { value: 'Expense', label: 'Expense' },
       category: { value: 'Utilities', label: 'Utilities' }
