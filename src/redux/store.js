@@ -15,24 +15,12 @@ var defaultChart = {
         label: ['Salary'],
         data: [1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000],
         backgroundColor: incomeColors[0],
-        borderColor: 'rgb(255, 255, 255)'
+        borderColor: 'rgb(0, 0, 0)'
       },
+      id: 0,
       amount: 1000,
       transactionType: { value: 'Income', label: 'Income' },
-      category: { value: 'Salary', label: 'Salary' },
-      months: {
-        'Jan': true,
-        'Feb': true,
-        'Mar': true,
-        'Apr': true,
-        'June': true,
-        'July': true,
-        'Aug': true,
-        'Sep': true,
-        'Oct': true,
-        'Nov': true,
-        'Dec': true,
-      }
+      category: { value: 'Salary', label: 'Salary' }
     },
     {
       chartData: {
@@ -41,23 +29,10 @@ var defaultChart = {
         backgroundColor: expenseColors[1],
         borderColor: 'rgb(255, 255, 255)'
       },
+      id: 1,
       amount: 500,
       transactionType: { value: 'Expense', label: 'Expense' },
       category: { value: 'Rent', label: 'Rent' },
-      months: {
-        'Jan': true,
-        'Feb': true,
-        'Mar': true,
-        'Apr': true,
-        'June': true,
-        'July': true,
-        'Aug': true,
-        'Sep': true,
-        'Oct': true,
-        'Nov': true,
-        'Dec': true,
-        'All': true,
-      }
     },
     {
       chartData: {
@@ -66,22 +41,10 @@ var defaultChart = {
         backgroundColor: expenseColors[2],
         borderColor: 'rgb(255, 255, 255)'
       },
+      id: 2,
       amount: 200,
       transactionType: { value: 'Expense', label: 'Expense' },
-      category: { value: 'Utilities', label: 'Utilities' },
-      months: {
-        'Jan': true,
-        'Feb': true,
-        'Mar': true,
-        'Apr': true,
-        'June': true,
-        'July': true,
-        'Aug': true,
-        'Sep': true,
-        'Oct': true,
-        'Nov': true,
-        'Dec': true,
-      }
+      category: { value: 'Utilities', label: 'Utilities' }
     }
   ],
   categories: [
