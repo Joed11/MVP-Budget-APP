@@ -64,8 +64,9 @@ var defaultState = {
   incomeColors: incomeColors,
   expenseColors: expenseColors,
   assets: defaultChart.assets,
+  categories: defaultChart.categories,
   savedCharts: [],
-  categories: defaultChart.categories
+  username: ''
 }
 
 var store = createStore(rootReducer, defaultState);
