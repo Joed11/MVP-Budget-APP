@@ -1,6 +1,6 @@
-var changeCategories = (assets) => ({
+var changeCategories = (categories) => ({
   type: "CHANGE_CATEGORIES",
-  payload: assets
+  payload: categories
 });
 
 export default changeCategories;
