@@ -1,29 +1,43 @@
-import React, {useState} from 'react';
+import React, {useState,useEffect} from 'react';
 import {Bar} from 'react-chartjs-2';
 
 var BudgetChart = (props) => {
 
-  var chartData = {
-    labels: props.labels
-  }
+  const [localChartData, setLocalChartData] = useState([])
 
-  chartData.datasets = props.dataPoints.map((point) => {
-    point.chartData.order = 2;
-    point.chartData.yAxisID = 'A';
-    return point.chartData
-  })
+  useEffect(() => {
+    var chartData = {
+      labels: props.labels
+    }
 
-  var assets = 50000
-
-  chartData.datasets.push({
-      label: ['Assets'],
-      type: 'line',
-      data: [50000,60000,70000,80000,90000,100000,90000,80000,70000,60000,50000,40000],
-      backgroundColor: 'rgba(0,0,0,0)',
-      borderColor: 'rgb(0, 50, 200)',
-      order: 1,
-      yAxisID: 'B'
+    var chartDataArray = props.dataPoints.map((point) => {
+      point.chartData.order = 2;
+      point.chartData.yAxisID = 'A';
+      point.chartData.barPercentage = .6;
+      return point.chartData
     })
+
+    chartData.datasets = chartDataArray
+
+    var assetsNumber = parseInt(props.assets)
+
+    console.log(assetsNumber);
+
+    var assetData = buildAssetsData(assetsNumber, chartDataArray);
+
+    chartData.datasets.push({
+        label: ['Assets'],
+        type: 'line',
+        data: assetData,
+        backgroundColor: 'rgba(0,0,0,0)',
+        borderColor: 'rgb(0, 50, 200)',
+        order: 1,
+        yAxisID: 'B'
+      })
+
+      console.log(chartData);
+      setLocalChartData(chartData);
+  }, [props.dataPoints,props.assets])
 
   var chartOptions = {
     maintainAspectRatio: true,
@@ -36,7 +50,6 @@ var BudgetChart = (props) => {
     scales: {
       xAxes: [{
         stacked: true,
-        barPercentage: 0.6,
         gridLines: {
           color: "rgba(0, 0, 0, 0)",
         },
@@ -83,10 +96,22 @@ var BudgetChart = (props) => {
   return (
       <div className="chart">
         <Bar
-          data={chartData}
+          data={localChartData}
           options={chartOptions}/>
       </div>
   )
 }
 
 export default BudgetChart;
+
+var buildAssetsData = (startingAssets, dataArray) => {
+  var assetArray = [0,0,0,0,0,0,0,0,0,0,0,0];
+  var assets = startingAssets;
+  for (let i = 0; i < assetArray.length; i += 1) {
+    dataArray.forEach((dataPoint) => {
+      assets += dataPoint.data[i]
+    })
+    assetArray[i] = assets;
+  }
+  return assetArray;
+}
