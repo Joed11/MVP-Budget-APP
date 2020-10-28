@@ -17,7 +17,6 @@ var InputList = (props) => {
         amount={entry.amount}
         transactionType={entry.transactionType}
         category={entry.category}
-        months={entry.months}
         categories={props.categories}
         updateData={setNewChartData.bind(this)}
         currentData={newChartData}/>
@@ -26,7 +25,7 @@ var InputList = (props) => {
         var newDataPoints = props.dataPoints.slice(0);
         var newDataEntry = makeNewEntry(newChartData);
         newDataPoints.push(newDataEntry)
-        props.updateDataPoints(newDataPoints);
+        setNewChartData(newDataPoints);
         console.log(newDataPoints)
       }}>Add New Item</button>
       <button onClick={() => {
@@ -45,11 +44,11 @@ var makeNewEntry = function (newChartData) {
   var obj = {
   chartData: {
     label: ['Misc.'],
-    data: [0,0,0,0,0,0,0,0,0,0,0,0],
+    data: [100,100,100,100,100,100,100,100,100,100],
     backgroundColor: incomeColors[randomIdx],
     borderColor: 'rgb(255, 255, 255)'
   },
-  amount: 0,
+  amount: 100,
   transactionType: { value: 'Income', label: 'Income' },
   category: { value: 'Misc.', label: 'Misc.' }
 }
