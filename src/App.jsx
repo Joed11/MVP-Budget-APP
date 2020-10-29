@@ -8,7 +8,7 @@ var App = (props) => {
   return (
     <div>
       <NavigationContainer/>
-      <BudgetChartContainer />
+      <BudgetChartContainer/>
       <InputsContainer/>
     </div>
   )

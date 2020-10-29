@@ -11,7 +11,8 @@ var InputList = (props) => {
 
   return (
   <div className="data">
-    {props.dataPoints.map((entry,idx) => {
+    {props.dataPoints.map((newEntry,idx) => {
+      var entry = JSON.parse(JSON.stringify(newEntry))
       return <InputField
         id={idx}
         amount={entry.amount}
@@ -21,16 +22,13 @@ var InputList = (props) => {
         updateData={setNewChartData.bind(this)}
         currentData={newChartData}/>
     })}
-    <button onClick={() => {
+    <button className="add-item-button" onClick={() => {
         var newDataPoints = JSON.parse(JSON.stringify(props.dataPoints));
         var newDataEntry = makeNewEntry(newChartData);
         newDataPoints.push(newDataEntry)
         setNewChartData(newDataPoints);
-        console.log(newDataPoints)
+        console.log('newDataPoints',newDataPoints)
       }}>Add New Item</button>
-      <button onClick={() => {
-        props.updateDataPoints(newChartData);
-      }}>Update Chart</button>
   </div>
   )
 }
@@ -38,6 +36,8 @@ var InputList = (props) => {
 export default InputList;
 
 var incomeColors = ['rgba(51,204,255,0.7)', 'rgba(51,204,51,0.7)', 'rgba(51,204,204,0.7)', 'rgba(153,153,255,0.7)', 'rgba(0,102,153,0.7)'];
+
+var counter = 0;
 
 var makeNewEntry = function (newChartData) {
   var randomIdx = Math.floor(Math.random() * Math.floor(4))
