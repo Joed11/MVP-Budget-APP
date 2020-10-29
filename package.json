@@ -14,7 +14,9 @@
     "type": "git",
     "url": "git+https://github.com/Joed11/MVP-Budget-APP.git"
   },
-  "keywords": [],
+  "keywords": [
+    "heroku"
+  ],
   "author": "",
   "license": "ISC",
   "bugs": {
