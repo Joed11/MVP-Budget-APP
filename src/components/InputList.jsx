@@ -19,12 +19,12 @@ var InputList = (props) => {
         transactionType={entry.transactionType}
         category={entry.category}
         categories={props.categories}
-        updateData={setNewChartData.bind(this)}
-        currentData={newChartData}/>
+        updateData={props.updateDataPoints.bind(this)}
+        currentData={props.dataPoints}/>
     })}
     <button className="add-item-button" onClick={() => {
         var newDataPoints = JSON.parse(JSON.stringify(props.dataPoints));
-        var newDataEntry = makeNewEntry(newChartData);
+        var newDataEntry = makeNewEntry(newDataPoints);
         newDataPoints.push(newDataEntry)
         setNewChartData(newDataPoints);
         console.log('newDataPoints',newDataPoints)

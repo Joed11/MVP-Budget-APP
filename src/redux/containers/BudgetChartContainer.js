@@ -5,7 +5,8 @@ import BudgetChart from '../../components/BudgetChart.jsx';
 const mapStateToProps = (store) => ({
     labels: store.labels,
     dataPoints: store.dataPoints,
-    assets: store.assets
+    assets: store.assets,
+    savedCharts: store.savedCharts
   })
 
 var BudgetChartContainer = connect(
