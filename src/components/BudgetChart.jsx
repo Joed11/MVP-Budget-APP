@@ -21,14 +21,12 @@ var BudgetChart = (props) => {
 
     var assetsNumber = parseInt(props.assets)
 
-    console.log(assetsNumber);
-
     var assetData = buildAssetsData(assetsNumber, chartDataArray);
 
     chartData.datasets.push({
         label: ['Assets'],
         type: 'line',
-        data: assetData,
+        data: JSON.parse(JSON.stringify(assetData)),
         backgroundColor: 'rgba(0,0,0,0)',
         borderColor: 'rgb(0, 50, 200)',
         order: 1,
@@ -36,6 +34,7 @@ var BudgetChart = (props) => {
       })
 
       console.log(chartData);
+      JSON.parse(JSON.stringify(chartData))
       setLocalChartData(chartData);
   }, [props.dataPoints,props.assets])
 
@@ -96,7 +95,7 @@ var BudgetChart = (props) => {
   return (
       <div className="chart">
         <Bar
-          data={localChartData}
+          data={JSON.parse(JSON.stringify(localChartData))}
           options={chartOptions}/>
       </div>
   )

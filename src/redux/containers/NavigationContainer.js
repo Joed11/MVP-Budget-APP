@@ -3,6 +3,10 @@ import { connect } from 'react-redux';
 import Navigation from '../../components/Navigation.jsx';
 import changeAssets from '../actions/changeAssets.js';
 import changeUsername from '../actions/changeUsername.js';
+import changeLabels from '../actions/changeLabels.js';
+import changeDataPoints from '../actions/changeDataPoints.js';
+import changeSavedCharts from '../actions/changeSavedCharts.js';
+import changeCategories from '../actions/changeCategories.js';
 
 const mapDispatchToProps = (dispatch) => {
   return {
@@ -10,17 +14,30 @@ const mapDispatchToProps = (dispatch) => {
         dispatch(changeAssets(assetNumber))
       },
       updateUsername: (username) => {
-        dispatch(changeAssets(username))
+        dispatch(changeUsername(username))
+      },
+      updateLabels: (newLabels) => {
+        dispatch(changeLabels(newLabels))
+      },
+      updateDataPoints: (newData) => {
+        dispatch(changeDataPoints(newData))
+      },
+      updateCategories: (newCategories) => {
+        dispatch(changeCategories(newCategories))
+      },
+      updateSavedCharts: (newCharts) => {
+        dispatch(changeSavedCharts(newCharts))
       },
   }
 }
 
 const mapStateToProps = (store) => ({
-    assets: store.assets,
     username: store.username,
+    labels: store.labels,
+    assets: store.assets,
+    dataPoints: store.dataPoints,
+    categories: store.categories,
     savedCharts: store.savedCharts,
-    currentChartData: store.dataPoints,
-    currentChartLabels: store.xLabels,
   })
 
 var NavigationContainer = connect(

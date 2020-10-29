@@ -22,7 +22,7 @@ var InputList = (props) => {
         currentData={newChartData}/>
     })}
     <button onClick={() => {
-        var newDataPoints = props.dataPoints.slice(0);
+        var newDataPoints = JSON.parse(JSON.stringify(props.dataPoints));
         var newDataEntry = makeNewEntry(newChartData);
         newDataPoints.push(newDataEntry)
         setNewChartData(newDataPoints);

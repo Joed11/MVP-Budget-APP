@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import BudgetChart from '../../components/BudgetChart.jsx';
 
 const mapStateToProps = (store) => ({
-    labels: store.xLabels,
+    labels: store.labels,
     dataPoints: store.dataPoints,
     assets: store.assets
   })

@@ -7,7 +7,7 @@ var incomeColors = ['rgba(51,204,255,0.7)', 'rgba(51,204,51,0.7)', 'rgba(51,204,
 var expenseColors = ['rgba(255,0,0,0.7)', 'rgba(204,102,0,0.7)', 'rgba(153,0,153,0.7)', 'rgba(255,102,0,0.7)', 'rgba(255,204,0,0.7)'];
 
 var defaultChart = {
-  dates: ['Jan', 'Feb', 'March', 'April', 'May', 'June', 'July', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'],
+  labels: ['Jan', 'Feb', 'March', 'April', 'May', 'June', 'July', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'],
   assets: 50000,
   dataPoints: [
     {
@@ -58,14 +58,21 @@ var defaultChart = {
   ]
 }
 
+var sampleSavedCharts = [
+  {chartname: 'my chart 1'},
+  {chartname: 'my chart 2'},
+  {chartname: 'my chart 3'},
+  {chartname: 'my chart 4'}
+]
+
 var defaultState = {
-  xLabels: defaultChart.dates,
+  labels: defaultChart.labels,
   dataPoints: defaultChart.dataPoints,
   incomeColors: incomeColors,
   expenseColors: expenseColors,
   assets: defaultChart.assets,
   categories: defaultChart.categories,
-  savedCharts: [],
+  savedCharts: sampleSavedCharts,
   username: ''
 }
 

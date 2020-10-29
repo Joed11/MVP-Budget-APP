@@ -105,7 +105,7 @@ var InputField = (props) => {
       <button
       className="input-field input-remove"
       onClick={() => {
-        var newChart = props.currentData.slice(0);
+        var newChart = JSON.parse(JSON.stringify(props.currentData));
         newChart.splice(props.id,1);
         props.updateData(newChart);
       }}>Remove</button>
@@ -122,7 +122,6 @@ var buildDataArray = (months, amount, type) => {
   if (type.value === 'Expense') {
     value = amount * -1;
   }
-  console.log('months',months);
   if (months !== null && months.length) {
     months.forEach((month) => {
       if (month.value !== null) {

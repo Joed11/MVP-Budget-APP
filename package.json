@@ -21,6 +21,8 @@
   },
   "homepage": "https://github.com/Joed11/MVP-Budget-APP#readme",
   "dependencies": {
+    "axios": "^0.21.0",
+    "bluebird": "^3.7.2",
     "body-parser": "^1.19.0",
     "chart.js": "^2.9.4",
     "express": "^4.17.1",
