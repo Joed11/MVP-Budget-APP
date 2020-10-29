@@ -10,11 +10,23 @@ var BudgetChart = (props) => {
       labels: props.labels
     }
 
-    var chartDataArray = props.dataPoints.map((point) => {
-      point.chartData.order = 2;
-      point.chartData.yAxisID = 'A';
-      point.chartData.barPercentage = .6;
-      return point.chartData
+    var dataLabelTracker = {};
+
+    var chartDataArray = props.dataPoints.map((newPoint) => {
+      console.log(newPoint)
+      if (newPoint) {
+        var point = JSON.parse(JSON.stringify(newPoint))
+        if (dataLabelTracker.hasOwnProperty(point.chartData.label[0])) {
+          dataLabelTracker[point.chartData.label[0]] += 1;
+          point.chartData.label[0] += dataLabelTracker[point.chartData.label[0]];
+        } else {
+          dataLabelTracker[point.chartData.label[0]] = 1;
+        }
+        point.chartData.order = 2;
+        point.chartData.yAxisID = 'A';
+        point.chartData.barPercentage = .6;
+        return point.chartData
+      }
     })
 
     chartData.datasets = chartDataArray
@@ -33,8 +45,7 @@ var BudgetChart = (props) => {
         yAxisID: 'B'
       })
 
-      console.log(chartData);
-      JSON.parse(JSON.stringify(chartData))
+      console.log('local chart data budget chart', chartData);
       setLocalChartData(chartData);
   }, [props.dataPoints,props.assets])
 

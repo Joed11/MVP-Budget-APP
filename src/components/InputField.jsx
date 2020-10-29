@@ -21,6 +21,19 @@ var typeOptions = [
   { value: 'Expense', label: 'Expense' },
 ]
 
+var categoryOptions = [
+  { value: 'Salary', label: 'Salary' },
+  { value: 'Takeout', label: 'Takeout' },
+  { value: 'Groceries', label: 'Groceries' },
+  { value: 'Rent', label: 'Rent' },
+  { value: 'Mortgage', label: 'Mortgage' },
+  { value: 'Entertainment', label: 'Entertainment' },
+  { value: 'Subscriptions', label: 'Subscriptions' },
+  { value: 'Recreation', label: 'Recreation' },
+  { value: 'Utilities', label: 'Utilities' },
+  { value: 'Misc.', label: 'Misc.' }
+]
+
 var incomeColorCounter = 0;
 var expenseColorCounter = 0;
 
@@ -36,7 +49,7 @@ var InputField = (props) => {
   const [months, setMonths] = useState(monthOptions);
 
   useEffect(()=>{
-    var newChart = props.currentData.slice(0);
+    var newChart = JSON.parse(JSON.stringify(props.currentData));
     var color;
     if (type.value === 'Expense') {
       color = expenseColors[expenseColorCounter];
@@ -60,7 +73,6 @@ var InputField = (props) => {
         backgroundColor: color,
         borderColor: 'rgb(0, 0, 0)'
       },
-      id: props.id,
       amount: amount,
       transactionType: type,
       category: category
@@ -93,7 +105,7 @@ var InputField = (props) => {
         closeMenuOnSelect={true}
         defaultValue={props.category}
         onChange={(val) => setCategory(val)}
-        options={props.categories}
+        options={categoryOptions}
       />
       <Select
         className="input-field input-months"
@@ -107,6 +119,7 @@ var InputField = (props) => {
       onClick={() => {
         var newChart = JSON.parse(JSON.stringify(props.currentData));
         newChart.splice(props.id,1);
+        console.log('input field after splice', newChart)
         props.updateData(newChart);
       }}>Remove</button>
     </div>

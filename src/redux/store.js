@@ -58,13 +58,6 @@ var defaultChart = {
   ]
 }
 
-var sampleSavedCharts = [
-  {chartname: 'my chart 1'},
-  {chartname: 'my chart 2'},
-  {chartname: 'my chart 3'},
-  {chartname: 'my chart 4'}
-]
-
 var defaultState = {
   labels: defaultChart.labels,
   dataPoints: defaultChart.dataPoints,
@@ -72,7 +65,7 @@ var defaultState = {
   expenseColors: expenseColors,
   assets: defaultChart.assets,
   categories: defaultChart.categories,
-  savedCharts: sampleSavedCharts,
+  savedCharts: [defaultChart],
   username: ''
 }
 
