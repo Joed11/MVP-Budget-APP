@@ -28,6 +28,12 @@ const mapDispatchToProps = (dispatch) => {
       updateSavedCharts: (newCharts) => {
         dispatch(changeSavedCharts(newCharts))
       },
+      updateWholeChart: (newLabels, assetNumber, newData, newCategories) => {
+        dispatch(changeLabels(newLabels));
+        dispatch(changeAssets(assetNumber));
+        dispatch(changeDataPoints(newData));
+        dispatch(changeCategories(newCategories));
+      },
   }
 }
 

@@ -3,22 +3,29 @@ import {Bar} from 'react-chartjs-2';
 
 var BudgetChart = (props) => {
 
-  const [localChartData, setLocalChartData] = useState([])
+  const [localChartData, setLocalChartData] = useState(props.savedCharts[0])
 
   useEffect(() => {
+    console.log('starting render data points', props.dataPoints)
+    console.log('starting render localData', localChartData)
+    var labelCopy = JSON.parse(JSON.stringify(props.labels))
+
     var chartData = {
-      labels: props.labels
+      labels: labelCopy
     }
+
+    var newDataPoints = JSON.parse(JSON.stringify(props.dataPoints))
 
     var dataLabelTracker = {};
 
-    var chartDataArray = props.dataPoints.map((newPoint) => {
-      console.log(newPoint)
-      if (newPoint) {
+    console.log('newDataPoints',newDataPoints)
+
+    var chartDataArray = newDataPoints.map((newPoint) => {
+        console.log('newPoint', newPoint)
         var point = JSON.parse(JSON.stringify(newPoint))
         if (dataLabelTracker.hasOwnProperty(point.chartData.label[0])) {
           dataLabelTracker[point.chartData.label[0]] += 1;
-          point.chartData.label[0] += dataLabelTracker[point.chartData.label[0]];
+          point.chartData.label[0] = point.chartData.label[0] + dataLabelTracker[point.chartData.label[0]];
         } else {
           dataLabelTracker[point.chartData.label[0]] = 1;
         }
@@ -26,14 +33,19 @@ var BudgetChart = (props) => {
         point.chartData.yAxisID = 'A';
         point.chartData.barPercentage = .6;
         return point.chartData
-      }
     })
 
-    chartData.datasets = chartDataArray
+    console.log('chartDataArray',chartDataArray)
+
+    chartData.datasets = JSON.parse(JSON.stringify(chartDataArray))
 
     var assetsNumber = parseInt(props.assets)
 
-    var assetData = buildAssetsData(assetsNumber, chartDataArray);
+    var chartDataArrayCopy = JSON.parse(JSON.stringify(chartDataArray))
+
+    var assetData = buildAssetsData(assetsNumber, chartDataArrayCopy);
+
+    console.log('assetData',chartDataArray)
 
     chartData.datasets.push({
         label: ['Assets'],
@@ -45,9 +57,10 @@ var BudgetChart = (props) => {
         yAxisID: 'B'
       })
 
-      console.log('local chart data budget chart', chartData);
-      setLocalChartData(chartData);
-  }, [props.dataPoints,props.assets])
+      var chartDataCopy = JSON.parse(JSON.stringify(chartData));
+      console.log('local chart data budget chart', chartDataCopy);
+      setLocalChartData(chartDataCopy);
+  }, [props.dataPoints, props.assets])
 
   var chartOptions = {
     maintainAspectRatio: true,
@@ -106,7 +119,7 @@ var BudgetChart = (props) => {
   return (
       <div className="chart">
         <Bar
-          data={JSON.parse(JSON.stringify(localChartData))}
+          data={localChartData}
           options={chartOptions}/>
       </div>
   )
