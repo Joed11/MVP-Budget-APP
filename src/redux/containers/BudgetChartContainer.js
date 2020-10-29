@@ -3,8 +3,9 @@ import { connect } from 'react-redux';
 import BudgetChart from '../../components/BudgetChart.jsx';
 
 const mapStateToProps = (store) => ({
-    labels: store.xLabels,
-    dataPoints: store.dataPoints
+    labels: store.labels,
+    dataPoints: store.dataPoints,
+    assets: store.assets
   })
 
 var BudgetChartContainer = connect(

@@ -7,7 +7,7 @@ var incomeColors = ['rgba(51,204,255,0.7)', 'rgba(51,204,51,0.7)', 'rgba(51,204,
 var expenseColors = ['rgba(255,0,0,0.7)', 'rgba(204,102,0,0.7)', 'rgba(153,0,153,0.7)', 'rgba(255,102,0,0.7)', 'rgba(255,204,0,0.7)'];
 
 var defaultChart = {
-  dates: ['Jan', 'Feb', 'March', 'April', 'May', 'June', 'July', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'],
+  labels: ['Jan', 'Feb', 'March', 'April', 'May', 'June', 'July', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'],
   assets: 50000,
   dataPoints: [
     {
@@ -15,24 +15,11 @@ var defaultChart = {
         label: ['Salary'],
         data: [1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000],
         backgroundColor: incomeColors[0],
-        borderColor: 'rgb(255, 255, 255)'
+        borderColor: 'rgb(0, 0, 0)'
       },
       amount: 1000,
       transactionType: { value: 'Income', label: 'Income' },
-      category: { value: 'Salary', label: 'Salary' },
-      months: {
-        'Jan': true,
-        'Feb': true,
-        'Mar': true,
-        'Apr': true,
-        'June': true,
-        'July': true,
-        'Aug': true,
-        'Sep': true,
-        'Oct': true,
-        'Nov': true,
-        'Dec': true,
-      }
+      category: { value: 'Salary', label: 'Salary' }
     },
     {
       chartData: {
@@ -44,20 +31,6 @@ var defaultChart = {
       amount: 500,
       transactionType: { value: 'Expense', label: 'Expense' },
       category: { value: 'Rent', label: 'Rent' },
-      months: {
-        'Jan': true,
-        'Feb': true,
-        'Mar': true,
-        'Apr': true,
-        'June': true,
-        'July': true,
-        'Aug': true,
-        'Sep': true,
-        'Oct': true,
-        'Nov': true,
-        'Dec': true,
-        'All': true,
-      }
     },
     {
       chartData: {
@@ -68,20 +41,7 @@ var defaultChart = {
       },
       amount: 200,
       transactionType: { value: 'Expense', label: 'Expense' },
-      category: { value: 'Utilities', label: 'Utilities' },
-      months: {
-        'Jan': true,
-        'Feb': true,
-        'Mar': true,
-        'Apr': true,
-        'June': true,
-        'July': true,
-        'Aug': true,
-        'Sep': true,
-        'Oct': true,
-        'Nov': true,
-        'Dec': true,
-      }
+      category: { value: 'Utilities', label: 'Utilities' }
     }
   ],
   categories: [
@@ -98,14 +58,22 @@ var defaultChart = {
   ]
 }
 
+var sampleSavedCharts = [
+  {chartname: 'my chart 1'},
+  {chartname: 'my chart 2'},
+  {chartname: 'my chart 3'},
+  {chartname: 'my chart 4'}
+]
+
 var defaultState = {
-  xLabels: defaultChart.dates,
+  labels: defaultChart.labels,
   dataPoints: defaultChart.dataPoints,
   incomeColors: incomeColors,
   expenseColors: expenseColors,
   assets: defaultChart.assets,
-  savedCharts: [],
-  categories: defaultChart.categories
+  categories: defaultChart.categories,
+  savedCharts: sampleSavedCharts,
+  username: ''
 }
 
 var store = createStore(rootReducer, defaultState);
