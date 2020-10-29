@@ -1,3 +1,4 @@
+require('dotenv').config()
 const EXPRESS = require('express');
 const MORGAN = require('morgan');
 const HELMET = require('helmet');

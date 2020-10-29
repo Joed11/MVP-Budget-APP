@@ -1,6 +1,8 @@
 var mongoose = require('mongoose');
+var dbHost = process.env.DB_HOST || '127.0.0.1:27017';
+var dbName = process.env.DB_NAME || 'MVP';
 
-mongoose.connect('mongodb://localhost:27017/MVP', { useNewUrlParser: true })
+mongoose.connect(`mongodb://${dbHost}/${dbName}`, { useNewUrlParser: true })
   .then(()=> {console.log('Connected to the db')})
   .catch(error => handleError(error));
 
