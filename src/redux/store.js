@@ -20,7 +20,8 @@ var defaultChart = {
       },
       amount: 1000,
       transactionType: { value: 'Income', label: 'Income' },
-      category: { value: 'Salary', label: 'Salary' }
+      category: { value: 'Salary', label: 'Salary' },
+      months: []
     },
     {
       chartData: {
@@ -32,6 +33,7 @@ var defaultChart = {
       amount: 500,
       transactionType: { value: 'Expense', label: 'Expense' },
       category: { value: 'Rent', label: 'Rent' },
+      months: []
     },
     {
       chartData: {
@@ -42,7 +44,8 @@ var defaultChart = {
       },
       amount: 200,
       transactionType: { value: 'Expense', label: 'Expense' },
-      category: { value: 'Utilities', label: 'Utilities' }
+      category: { value: 'Utilities', label: 'Utilities' },
+      months: []
     }
   ],
   categories: [
@@ -66,7 +69,8 @@ var defaultState = {
   expenseColors: expenseColors,
   assets: defaultChart.assets,
   categories: defaultChart.categories,
-  savedCharts: [defaultChart],
+  savedCharts: [],
+  defaultChart: defaultChart,
   username: ''
 }
 

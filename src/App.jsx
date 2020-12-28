@@ -1,6 +1,6 @@
 import React from 'react';
 import NavigationContainer from './redux/containers/NavigationContainer.js';
-import InputsContainer from './redux/containers/InputsContainer.js';
+import Inputs from './components/Inputs.jsx';
 import BudgetChartContainer from './redux/containers/BudgetChartContainer.js';
 
 
@@ -9,7 +9,7 @@ var App = (props) => {
     <div>
       <NavigationContainer/>
       <BudgetChartContainer/>
-      <InputsContainer/>
+      <Inputs/>
     </div>
   )
 }

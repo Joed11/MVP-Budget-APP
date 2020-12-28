@@ -44,6 +44,7 @@ const mapStateToProps = (store) => ({
     dataPoints: store.dataPoints,
     categories: store.categories,
     savedCharts: store.savedCharts,
+    defaultChart: store.defaultChart
   })
 
 var NavigationContainer = connect(

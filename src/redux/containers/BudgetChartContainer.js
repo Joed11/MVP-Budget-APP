@@ -6,7 +6,8 @@ const mapStateToProps = (store) => ({
     labels: store.labels,
     dataPoints: store.dataPoints,
     assets: store.assets,
-    savedCharts: store.savedCharts
+    savedCharts: store.savedCharts,
+    defaultChart: store.defaultChart
   })
 
 var BudgetChartContainer = connect(
