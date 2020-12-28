@@ -43,10 +43,10 @@ var expenseColors = ['rgba(255,0,0,0.7)', 'rgba(204,102,0,0.7)', 'rgba(153,0,153
 
 var InputField = (props) => {
 
-  const [amount, setAmount] = useState(props.amount);
+  const [amount, setAmount] = useState(parseInt(props.amount));
   const [type, setType] = useState(props.transactionType);
   const [category, setCategory] = useState(props.category);
-  const [months, setMonths] = useState(monthOptions);
+  const [months, setMonths] = useState(props.months);
 
   useEffect(()=>{
     var newChart = JSON.parse(JSON.stringify(props.currentData));
@@ -75,7 +75,8 @@ var InputField = (props) => {
       },
       amount: amount,
       transactionType: type,
-      category: category
+      category: category,
+      months: months
     }
 
     newChart[props.id] = newDataEntry;
@@ -90,25 +91,26 @@ var InputField = (props) => {
       <input
         className="input-field input-amount"
         type="number"
-        defaultValue={props.amount}
+        value={parseInt(props.amount)}
         onChange={(e) => setAmount(e.target.value)}>
       </input>
       <Select
         className="input-field input-type"
         closeMenuOnSelect={true}
-        defaultValue={props.transactionType}
+        value={props.transactionType}
         onChange={(val) => setType(val)}
         options={typeOptions}
       />
       <Select
         className="input-field input-category"
         closeMenuOnSelect={true}
-        defaultValue={props.category}
+        value={props.category}
         onChange={(val) => setCategory(val)}
         options={categoryOptions}
       />
       <Select
         className="input-field input-months"
+        value={props.months}
         closeMenuOnSelect={false}
         onChange={(val) => setMonths(val)}
         isMulti
@@ -117,10 +119,10 @@ var InputField = (props) => {
       <button
       className="input-field input-remove"
       onClick={() => {
-        var newChart = JSON.parse(JSON.stringify(props.currentData));
-        newChart.splice(props.id,1);
-        console.log('input field after splice', newChart)
-        props.updateData(newChart);
+        var chartDataPointsCopy = JSON.parse(JSON.stringify(props.currentData));
+        var splicedField = chartDataPointsCopy.splice(props.id,1);
+        console.log('input field after splice', splicedField)
+        props.updateData(chartDataPointsCopy);
       }}>Remove</button>
     </div>
   )
@@ -135,7 +137,7 @@ var buildDataArray = (months, amount, type) => {
   if (type.value === 'Expense') {
     value = amount * -1;
   }
-  if (months !== null && months.length) {
+  if (months.length) {
     months.forEach((month) => {
       if (month.value !== null) {
         data[month.value] = parseInt(value);

@@ -7,8 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index.js",
     "dev": "nodemon index.js",
-    "build-dev": "webpack -w",
-    "web": "node index.js"
+    "build-dev": "webpack -w"
   },
   "repository": {
     "type": "git",
@@ -24,33 +23,33 @@
   },
   "homepage": "https://github.com/Joed11/MVP-Budget-APP#readme",
   "dependencies": {
-    "axios": "^0.21.0",
+    "axios": "^0.21.1",
     "bluebird": "^3.7.2",
     "body-parser": "^1.19.0",
     "chart.js": "^2.9.4",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
-    "helmet": "^4.1.1",
-    "mongoose": "^5.10.11",
+    "helmet": "^4.3.1",
+    "mongoose": "^5.11.8",
     "morgan": "^1.10.0",
     "path": "^0.12.7",
     "react": "^17.0.1",
-    "react-chartjs-2": "^2.10.0",
+    "react-chartjs-2": "^2.11.1",
     "react-dom": "^17.0.1",
     "react-redux": "^7.2.2",
-    "react-select": "^3.1.0",
+    "react-select": "^3.1.1",
     "redux": "^4.0.5",
     "redux-thunk": "^2.3.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.12.3",
-    "@babel/preset-env": "^7.12.1",
-    "@babel/preset-react": "^7.12.1",
-    "babel-loader": "^8.1.0",
-    "eslint": "^7.12.0",
+    "@babel/core": "^7.12.10",
+    "@babel/preset-env": "^7.12.11",
+    "@babel/preset-react": "^7.12.10",
+    "babel-loader": "^8.2.2",
+    "eslint": "^7.16.0",
     "nodemon": "^2.0.6",
-    "webpack": "^5.2.0",
-    "webpack-cli": "^4.1.0"
+    "webpack": "^5.11.0",
+    "webpack-cli": "^4.3.0"
   },
   "engines": {
     "node": "12.18.3"

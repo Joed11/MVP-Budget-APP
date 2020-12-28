@@ -3,7 +3,8 @@ import {Bar} from 'react-chartjs-2';
 
 var BudgetChart = (props) => {
 
-  const [localChartData, setLocalChartData] = useState(props.savedCharts[0])
+  console.log('default chart', props.defaultChart)
+  const [localChartData, setLocalChartData] = useState(props.defaultChart)
 
   useEffect(() => {
     console.log('starting render data points', props.dataPoints)

@@ -3,22 +3,20 @@ import InputField from './InputField.jsx';
 
 var InputList = (props) => {
 
-  const [newChartData, setNewChartData] = useState(props.dataPoints);
-
-  useEffect(() => {
-    props.updateDataPoints(newChartData);
-  }, [newChartData])
+  console.log('creating the input list')
+  console.log(props.dataPoints);
 
   return (
-  <div className="data">
+  <div className="data" id="inputList">
     {props.dataPoints.map((newEntry,idx) => {
-      var entry = JSON.parse(JSON.stringify(newEntry))
+      console.log('amount', parseInt(newEntry.amount));
       return <InputField
         id={idx}
-        amount={entry.amount}
-        transactionType={entry.transactionType}
-        category={entry.category}
+        amount={parseInt(newEntry.amount)}
+        transactionType={newEntry.transactionType}
+        category={newEntry.category}
         categories={props.categories}
+        months={newEntry.months}
         updateData={props.updateDataPoints.bind(this)}
         currentData={props.dataPoints}/>
     })}
@@ -26,7 +24,7 @@ var InputList = (props) => {
         var newDataPoints = JSON.parse(JSON.stringify(props.dataPoints));
         var newDataEntry = makeNewEntry(newDataPoints);
         newDataPoints.push(newDataEntry)
-        setNewChartData(newDataPoints);
+        props.updateDataPoints(newDataPoints);
         console.log('newDataPoints',newDataPoints)
       }}>Add New Item</button>
   </div>
@@ -50,7 +48,8 @@ var makeNewEntry = function (newChartData) {
   },
   amount: 100,
   transactionType: { value: 'Income', label: 'Income' },
-  category: { value: 'Misc.', label: 'Misc.' }
+  category: { value: 'Misc.', label: 'Misc.' },
+  months: []
 }
 return obj;
 }
